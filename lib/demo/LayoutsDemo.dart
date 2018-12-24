@@ -11,13 +11,18 @@ class LayoutsDemo extends StatelessWidget {
           children: <Widget>[
             // IconBadge(Icons.pool,size:128.0),
             // IconBadge(Icons.pool,size:128.0),
-              AspectRatio(
-                aspectRatio: 3.0/2.0,
+              ConstrainedBox(
+
+                constraints: BoxConstraints(
+                  minHeight: 200.0,
+                  maxWidth: 200.0, 
+                ),
+
                 child: Container(
-                  
-                  color:Color.fromRGBO(3, 54, 255, 1.0)
+                  color: Color.fromRGBO(3, 54, 255, 1.0),
                 ),
               )
+              
               ],
             ),
       );
