@@ -66,7 +66,7 @@ class Home extends StatelessWidget{
             Icon(Icons.directions_bike,color: Colors.red,size: 128.0),
           ],
         ),
-        drawer:  Drawer() ,
+        drawer:  DrawerDemo() ,
         // endDrawer: Text('这也是'),
           ),
        );
