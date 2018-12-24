@@ -74,8 +74,18 @@ class Home extends StatelessWidget{
             Icon(Icons.directions_bike,color: Colors.red,size: 128.0),
           ],
         ),
-        drawer: Text("这是侧边栏"),
-        endDrawer: Text('这也是'),
+        drawer: Container(
+          color: Colors.white,
+          padding: EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text('这是侧边栏'),
+            ],
+          ),
+          
+        ),
+        // endDrawer: Text('这也是'),
           ),
        );
     }
