@@ -15,11 +15,12 @@ class LayoutsDemo extends StatelessWidget {
               width: 200.0,
               height: 300.0,
               child:Container(
+                alignment: Alignment(1.0, 0.0),
                 decoration: BoxDecoration(
                   color: Color.fromRGBO(3, 54, 255, 1.0),
                   borderRadius: BorderRadius.circular(8.0),
                 ),
-                child:Icon(Icons.history,color:Colors.white,size:32.0),
+                child:Icon(Icons.history,color:Colors.black,size:32.0),
               )
             ),
             SizedBox(
