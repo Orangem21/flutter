@@ -27,10 +27,32 @@ class Home extends StatelessWidget{
        return Scaffold(
          backgroundColor: Colors.grey[100],
         appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(
+              Icons.menu
+            ),
+            tooltip: 'Navigation',
+            onPressed: ()=>
+             debugPrint('Navgration button is pressed.')
+            ,
+          ),
+
+          actions: <Widget>[
+
+          IconButton(
+            icon: Icon(
+              Icons.search
+            ),
+            tooltip: 'Search',
+            onPressed: ()=>
+             debugPrint('search button is pressed.')
+          )
+          ],
+
           title: Text("Orange"),
           elevation: 0,
         ),
-        body: ListViewDemo(),
+        body: null,
       );
     }
 }
