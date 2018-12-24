@@ -74,16 +74,30 @@ class Home extends StatelessWidget{
             Icon(Icons.directions_bike,color: Colors.red,size: 128.0),
           ],
         ),
-        drawer: Container(
-          color: Colors.white,
-          padding: EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
             children: <Widget>[
-              Text('这是侧边栏'),
+               DrawerHeader(
+                 child: Text('Header'.toUpperCase()),
+                 decoration: BoxDecoration(
+                   color: Colors.grey[100],
+                 ),
+               ),
+              ListTile(
+                title: Text('Messages',textAlign:TextAlign.center),
+                trailing: Icon(Icons.message,color:Colors.black12,size: 25.0,),
+              ),
+              ListTile(
+                title: Text('Favorite',textAlign:TextAlign.center),
+                trailing: Icon(Icons.favorite,color:Colors.black12,size: 25.0,),
+              ),
+              ListTile(
+                title: Text('setting',textAlign:TextAlign.center),
+                trailing: Icon(Icons.settings,color:Colors.black12,size: 25.0,),
+              ),
             ],
           ),
-          
         ),
         // endDrawer: Text('这也是'),
           ),
