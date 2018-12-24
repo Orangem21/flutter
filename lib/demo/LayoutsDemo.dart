@@ -6,12 +6,14 @@ class LayoutsDemo extends StatelessWidget {
 
       return Container(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          //mainAxisAlignment: MainAxisAlignment.center,
           // crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             // IconBadge(Icons.pool,size:128.0),
             // IconBadge(Icons.pool,size:128.0),
-            SizedBox(
+            Stack(
+              children: <Widget>[
+              SizedBox(
               width: 200.0,
               height: 300.0,
               child:Container(
@@ -20,7 +22,7 @@ class LayoutsDemo extends StatelessWidget {
                   color: Color.fromRGBO(3, 54, 255, 1.0),
                   borderRadius: BorderRadius.circular(8.0),
                 ),
-                child:Icon(Icons.history,color:Colors.black,size:32.0),
+                child:Icon(Icons.history,color:Colors.white,size:32.0),
               )
             ),
             SizedBox(
@@ -32,11 +34,18 @@ class LayoutsDemo extends StatelessWidget {
               child:Container(
                 decoration: BoxDecoration(
                   color: Color.fromRGBO(3, 54, 255, 1.0),
-                  borderRadius: BorderRadius.circular(8.0),
+                  // borderRadius: BorderRadius.circular(8.0),
+                  shape:  BoxShape.circle,
+                  gradient: RadialGradient(colors:[
+                    Color.fromRGBO(7, 102, 255, 1.0),
+                    Color.fromRGBO(3, 54, 255, 1.0),
+                  ] ),
                 ),
                 child:Icon(Icons.person,color:Colors.white,size:32.0),
               )
             )
+              ],
+            ),
           ],
         ),
       );
