@@ -4,7 +4,11 @@ class LayoutsDemo extends StatelessWidget {
   @override
     Widget build(BuildContext context) {
 
-      return IconBadge(Icons.pool);
+      return Column(
+        children: <Widget>[
+          IconBadge(Icons.pool,size:128.0)
+        ],
+      );
     }
 }
 
@@ -12,7 +16,7 @@ class IconBadge extends StatelessWidget {
   final IconData icon;
   final double size;
 
-  IconBadge(this.icon,{this.size = 32.0});
+  IconBadge(this.icon,{this.size = 32.0});//给他一个默认值
   
   @override
     Widget build(BuildContext context) {
