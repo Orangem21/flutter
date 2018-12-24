@@ -6,7 +6,9 @@ class LayoutsDemo extends StatelessWidget {
 
       return Column(
         children: <Widget>[
-          IconBadge(Icons.pool,size:128.0)
+          IconBadge(Icons.pool,size:128.0),
+          IconBadge(Icons.pool,size:128.0),
+          IconBadge(Icons.pool,size:128.0),
         ],
       );
     }
