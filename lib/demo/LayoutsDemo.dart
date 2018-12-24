@@ -4,12 +4,14 @@ class LayoutsDemo extends StatelessWidget {
   @override
     Widget build(BuildContext context) {
 
-      return Column(
-        children: <Widget>[
-          IconBadge(Icons.pool,size:128.0),
-          IconBadge(Icons.pool,size:128.0),
-          IconBadge(Icons.pool,size:128.0),
-        ],
+      return Container(
+        child: Row(
+          children: <Widget>[
+            IconBadge(Icons.pool,size:128.0),
+            IconBadge(Icons.pool,size:128.0),
+            
+          ],
+        ),
       );
     }
 }
