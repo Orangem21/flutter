@@ -70,12 +70,21 @@ class Home extends StatelessWidget{
           child: ListView(
             padding: EdgeInsets.zero,
             children: <Widget>[
-               DrawerHeader(
-                 child: Text('Header'.toUpperCase()),
-                 decoration: BoxDecoration(
-                   color: Colors.grey[100],
-                 ),
-               ),
+              UserAccountsDrawerHeader(
+                accountName:Text('Orange',style: TextStyle(fontWeight:FontWeight.bold),), 
+                accountEmail: Text('Orangemtony@gmail.com'),
+                currentAccountPicture: CircleAvatar(
+                  backgroundImage: NetworkImage('https://resources.ninghao.org/images/wanghao.jpg')
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.yellow[400],
+                  image: DecorationImage(
+                    image: NetworkImage('https://resources.ninghao.org/images/childhood-in-a-picture.jpg'),
+                    fit: BoxFit.cover,
+                    // colorFilter: ColorFilter.mode(Colors.yellow[400].withOpacity(0.6), BlendMode.srcOver)
+                  )
+                ),
+              ),
               ListTile(
                 title: Text('Messages',textAlign:TextAlign.center),
                 trailing: Icon(Icons.message,color:Colors.black12,size: 25.0,),
