@@ -5,13 +5,37 @@ class LayoutsDemo extends StatelessWidget {
     Widget build(BuildContext context) {
 
       return Container(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          // crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            IconBadge(Icons.pool,size:128.0),
-            IconBadge(Icons.pool,size:128.0),
-            
+            // IconBadge(Icons.pool,size:128.0),
+            // IconBadge(Icons.pool,size:128.0),
+            SizedBox(
+              width: 200.0,
+              height: 300.0,
+              child:Container(
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(3, 54, 255, 1.0),
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child:Icon(Icons.history,color:Colors.white,size:32.0),
+              )
+            ),
+            SizedBox(
+              height: 32.0,
+            ),
+           SizedBox(
+              width: 100.0,
+              height: 100.0,
+              child:Container(
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(3, 54, 255, 1.0),
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child:Icon(Icons.person,color:Colors.white,size:32.0),
+              )
+            )
           ],
         ),
       );
