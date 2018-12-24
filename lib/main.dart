@@ -24,7 +24,9 @@ class Home extends StatelessWidget{
 
   @override
     Widget build(BuildContext context) {
-       return Scaffold(
+       return DefaultTabController(
+         length: 3,
+         child: Scaffold(
          backgroundColor: Colors.grey[100],
         appBar: AppBar(
           leading: IconButton(
@@ -48,11 +50,29 @@ class Home extends StatelessWidget{
              debugPrint('search button is pressed.')
           )
           ],
-
+    
           title: Text("Orange"),
+          bottom: TabBar(
+            unselectedLabelColor: Colors.black38,
+            indicatorColor: Colors.black54,
+            indicatorSize: TabBarIndicatorSize.label,
+            indicatorWeight: 1.0,
+            tabs: <Widget>[
+              Tab(icon: Icon(Icons.change_history)),
+              Tab(icon: Icon(Icons.local_activity)),
+              Tab(icon: Icon(Icons.directions_bike)),
+            ],
+          ),
           elevation: 0,
         ),
-        body: null,
-      );
+        body: TabBarView(
+          children: <Widget>[
+            Icon(Icons.directions_run,color: Colors.red,size: 128.0),
+            Icon(Icons.directions_walk,color: Colors.red,size: 128.0),
+            Icon(Icons.directions_bike,color: Colors.red,size: 128.0),
+          ],
+        ),
+          ),
+       );
     }
 }
