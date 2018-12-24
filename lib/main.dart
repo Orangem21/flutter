@@ -30,7 +30,7 @@ class Home extends StatelessWidget{
          length: 3,
          child: Scaffold(
          backgroundColor: Colors.grey[100],
-        appBar: AppBar(
+        appBar: AppBar( 
           leading: IconButton(
             icon: Icon(
               Icons.menu
@@ -74,6 +74,8 @@ class Home extends StatelessWidget{
             Icon(Icons.directions_bike,color: Colors.red,size: 128.0),
           ],
         ),
+        drawer: Text("这是侧边栏"),
+        endDrawer: Text('这也是'),
           ),
        );
     }
