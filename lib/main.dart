@@ -23,7 +23,10 @@ class App extends StatelessWidget{
 
 
 class Home extends StatelessWidget{
-
+  int _currentindex  = 0; 
+  void _ontapHandler () =>{
+    setState();
+  };
   @override
     Widget build(BuildContext context) {
        return DefaultTabController(
@@ -67,6 +70,32 @@ class Home extends StatelessWidget{
           ],
         ),
         drawer:  DrawerDemo() ,
+
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _currentindex,
+          onTap: _ontapHandler,
+          type: BottomNavigationBarType.fixed,
+          fixedColor: Colors.black,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.explore),
+              title: Text("Explor"),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.history),
+              title: Text("History"),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.list),
+              title: Text("List"),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              title: Text("My"),
+            )
+          ],
+        ) ,
+
         // endDrawer: Text('这也是'),
           ),
        );
