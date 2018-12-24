@@ -31,15 +31,7 @@ class Home extends StatelessWidget{
          child: Scaffold(
          backgroundColor: Colors.grey[100],
         appBar: AppBar( 
-          leading: IconButton(
-            icon: Icon(
-              Icons.menu
-            ),
-            tooltip: 'Navigation',
-            onPressed: ()=>
-             debugPrint('Navgration button is pressed.')
-            ,
-          ),
+
 
           actions: <Widget>[
 
@@ -87,14 +79,17 @@ class Home extends StatelessWidget{
               ListTile(
                 title: Text('Messages',textAlign:TextAlign.center),
                 trailing: Icon(Icons.message,color:Colors.black12,size: 25.0,),
+                onTap: ()=> Navigator.pop(context),
               ),
               ListTile(
                 title: Text('Favorite',textAlign:TextAlign.center),
                 trailing: Icon(Icons.favorite,color:Colors.black12,size: 25.0,),
+                onTap: ()=> Navigator.pop(context),
               ),
               ListTile(
                 title: Text('setting',textAlign:TextAlign.center),
                 trailing: Icon(Icons.settings,color:Colors.black12,size: 25.0,),
+                onTap: ()=> Navigator.pop(context),
               ),
             ],
           ),
