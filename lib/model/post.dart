@@ -1,17 +1,16 @@
 class Post {
-
   const Post({
     this.title,
     this.author,
     this.imageUrl
   });
 
-
   final String title;
   final String author;
   final String imageUrl;
+}
 
-  final List<Post> posts = [
+final List<Post> posts = [
   Post(
     title: 'Candy Shop',
     author: 'Mohamed Chahin',
@@ -87,5 +86,4 @@ class Post {
     author: 'Mohamed Chahin',
     imageUrl: 'https://resources.ninghao.org/images/white-dragon.jpg',
   )
-  ]
-}
+  ];
