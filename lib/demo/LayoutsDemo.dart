@@ -6,6 +6,8 @@ class LayoutsDemo extends StatelessWidget {
 
       return Container(
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             IconBadge(Icons.pool,size:128.0),
             IconBadge(Icons.pool,size:128.0),
