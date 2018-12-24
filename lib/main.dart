@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'demo/ListViewDemo.dart';
+import 'demo/Drawer.dart';
 
 void main(){
 
@@ -66,43 +66,7 @@ class Home extends StatelessWidget{
             Icon(Icons.directions_bike,color: Colors.red,size: 128.0),
           ],
         ),
-        drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: <Widget>[
-              UserAccountsDrawerHeader(
-                accountName:Text('Orange',style: TextStyle(fontWeight:FontWeight.bold),), 
-                accountEmail: Text('Orangemtony@gmail.com'),
-                currentAccountPicture: CircleAvatar(
-                  backgroundImage: NetworkImage('https://resources.ninghao.org/images/wanghao.jpg')
-                ),
-                decoration: BoxDecoration(
-                  color: Colors.yellow[400],
-                  image: DecorationImage(
-                    image: NetworkImage('https://resources.ninghao.org/images/childhood-in-a-picture.jpg'),
-                    fit: BoxFit.cover,
-                    // colorFilter: ColorFilter.mode(Colors.yellow[400].withOpacity(0.6), BlendMode.srcOver)
-                  )
-                ),
-              ),
-              ListTile(
-                title: Text('Messages',textAlign:TextAlign.center),
-                trailing: Icon(Icons.message,color:Colors.black12,size: 25.0,),
-                onTap: ()=> Navigator.pop(context),
-              ),
-              ListTile(
-                title: Text('Favorite',textAlign:TextAlign.center),
-                trailing: Icon(Icons.favorite,color:Colors.black12,size: 25.0,),
-                onTap: ()=> Navigator.pop(context),
-              ),
-              ListTile(
-                title: Text('setting',textAlign:TextAlign.center),
-                trailing: Icon(Icons.settings,color:Colors.black12,size: 25.0,),
-                onTap: ()=> Navigator.pop(context),
-              ),
-            ],
-          ),
-        ),
+        drawer:  Drawer() ,
         // endDrawer: Text('这也是'),
           ),
        );
