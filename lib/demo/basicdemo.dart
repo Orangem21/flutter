@@ -6,7 +6,19 @@ class BasicDemo extends StatelessWidget{
     Widget build(BuildContext context) {
       // TODO: implement build
       return Container(
-        color:Colors.grey[100],
+        // color:Colors.grey[100],
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: NetworkImage('https://resources.ninghao.org/images/say-hello-to-barry.jpg'),
+            alignment: Alignment.topCenter,
+            repeat: ImageRepeat.noRepeat,
+            fit: BoxFit.cover,
+            colorFilter: ColorFilter.mode(
+              Colors.indigoAccent[400].withOpacity(0.5),
+               BlendMode.hardLight)
+          )
+
+        ),
         child: Row(
            mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
