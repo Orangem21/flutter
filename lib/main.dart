@@ -8,6 +8,7 @@ import 'demo/viewdemo.dart';
 import 'demo/sliverDemo.dart';
 import 'demo/NavigatorDemo.dart';
 import 'demo/formDemo.dart';
+import 'demo/metrial-components.dart';
 
 void main(){
 
@@ -19,11 +20,12 @@ class App extends StatelessWidget{
   @override //覆盖父类build方法
   Widget build(BuildContext context){
     return MaterialApp(
-      initialRoute: '/form',
+      initialRoute: '/mdc',
       routes: {
         '/form':(context)=>formDemo(),
         '/':(context) => NavigatorDemo(),
         '/about':(context) => Page(title:'about'),
+        '/mdc':(context) =>MaterialComponents(),
       },
       // home: Home(),
       theme: ThemeData(
