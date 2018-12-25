@@ -8,166 +8,162 @@ class MaterialComponents extends StatelessWidget {
         title: Text('MaterialComponents'),
         elevation: 0.0,
       ),
-      body:ListView(
+      body: ListView(
         children: <Widget>[
-          ListofItem(title:'Button',page:ButtomDemo()),
-          ListofItem(title:'FloatingActionButton',page:FloatingActionButtonDemo()),
+          ListItem(title: 'Button', page: ButtonDemo()),
+          ListItem(title: 'FloatingActionButton', page: FloatingActionButtonDemo()),
         ],
-      )
+      ),
     );
   }
 }
-class FloatingActionButtonDemo extends StatelessWidget {
-  final Widget _floatingActionButton = FloatingActionButton(
-    onPressed: (){},
-    child: Icon(Icons.add),
-    elevation: 0.0,
-    backgroundColor: Colors.black87,
-    // shape: BeveledRectangleBorder(
-    //   borderRadius: BorderRadius.circular(10.0),
-    // ),
-  );
 
-  final Widget _floatingActionButtonExtended = FloatingActionButton.extended(
-      onPressed: (){},
-      icon: Icon(Icons.add),
-      label: Text('add'),
-  );
-
+class ButtonDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('FloatingActionButtonDemo'),
-      ),
-      floatingActionButton: _floatingActionButton,
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
-        child: Container(
-          height: 80.0,
+    final Widget FlatButtonDemo = Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        FlatButton(
+          child: Text('Button'),
+          onPressed: () {},
+          splashColor: Colors.grey,
+          textColor: Theme.of(context).accentColor,
         ),
-      ),
+        FlatButton.icon(
+          icon: Icon(Icons.add),
+          label: Text('Button'),
+          onPressed: () {},
+          splashColor: Colors.grey,
+          textColor: Theme.of(context).accentColor,
+        ),
+      ],
     );
-  }
-}
 
+    final Widget RaisedButtonDemo = Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Theme(
+          data: Theme.of(context).copyWith(
+            buttonColor: Theme.of(context).accentColor,
+            buttonTheme: ButtonThemeData(
+              textTheme: ButtonTextTheme.primary,
+              // shape: BeveledRectangleBorder(
+              //   borderRadius: BorderRadius.circular(5.0),
+              // ),
+              shape: StadiumBorder(),
+            ),
+          ),
+          child: RaisedButton(
+            child: Text('Button'),
+            onPressed: () {},
+            splashColor: Colors.grey,
+            elevation: 0.0,
+            // color: Theme.of(context).accentColor,
+            // textColor: Colors.white,
+            // textTheme: ButtonTextTheme.primary,
+          ),
+        ),
+        SizedBox(width: 16.0,),
+        RaisedButton.icon(
+          icon: Icon(Icons.add),
+          label: Text('Button'),
+          onPressed: () {},
+          splashColor: Colors.grey,
+          elevation: 12.0,
+          textColor: Theme.of(context).accentColor,
+        ),
+      ],
+    );
+    
+    final Widget OutlineButtonDemo = Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Theme(
+          data: Theme.of(context).copyWith(
+            buttonColor: Theme.of(context).accentColor,
+            buttonTheme: ButtonThemeData(
+              textTheme: ButtonTextTheme.primary,
+              // shape: BeveledRectangleBorder(
+              //   borderRadius: BorderRadius.circular(5.0),
+              // ),
+              shape: StadiumBorder(),
+            ),
+          ),
+          child: OutlineButton(
+            child: Text('Button'),
+            onPressed: () {},
+            splashColor: Colors.grey[100],
+            borderSide: BorderSide(
+              color: Colors.black,
+            ),
+            // color: Theme.of(context).accentColor,
+            textColor: Colors.black,
+            highlightedBorderColor: Colors.grey,
+            // textTheme: ButtonTextTheme.primary,
+          ),
+        ),
+        SizedBox(width: 16.0,),
+        OutlineButton.icon(
+          icon: Icon(Icons.add),
+          label: Text('Button'),
+          onPressed: () {},
+          splashColor: Colors.grey,
+          textColor: Theme.of(context).accentColor,
+        ),
+      ],
+    );
 
-class ButtomDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final Widget _buttonDemo = Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Theme(
-                  child:OutlineButton(
-                  child: Text("button"), 
-                  onPressed: (){},
-                  splashColor: Colors.grey,
-                  borderSide: BorderSide(
-                    color: Colors.black,
-                  ),
-                  // color: Theme.of(context).accentColor,
-                  // textTheme: ButtonTextTheme.primary,
-                  textColor: Colors.black,
-                  highlightedBorderColor: Colors.grey,
-                  // elevation: 0.0,
-                ),
-                // data: ThemeData(),
-                data: Theme.of(context).copyWith(
-                  buttonColor: Theme.of(context).accentColor,
-                  buttonTheme: ButtonThemeData(
-                    textTheme: ButtonTextTheme.primary,
-                    // shape:BeveledRectangleBorder(
-                    //   borderRadius: BorderRadius.circular(5.0)
-                    //)
-                    shape: StadiumBorder(),
-                  )
-                ),
-                ),
-                SizedBox(
-                  width: 16.0,
-                ),
-                OutlineButton.icon(
-                  // child: Text("button"), 
-                  label:Text('button'),
-                  // elevation: 0.0,
-                  icon: Icon(Icons.chat),
-                  onPressed: (){},
-                  splashColor: Colors.grey,
-                  textColor: Theme.of(context).accentColor,
-                ),
-              ],
-            );
-
-final Widget _raisedbuttonDemo = Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Theme(
-                  child:RaisedButton(
-                  child: Text("button"), 
-                  onPressed: (){},
-                  splashColor: Colors.grey,
-                  // color: Theme.of(context).accentColor,
-                  // textTheme: ButtonTextTheme.primary,
-                  // textColor: Theme.of(context).accentColor,
-                  elevation: 0.0,
-                ),
-                // data: ThemeData(),
-                data: Theme.of(context).copyWith(
-                  buttonColor: Theme.of(context).accentColor,
-                  buttonTheme: ButtonThemeData(
-                    textTheme: ButtonTextTheme.primary,
-                    // shape:BeveledRectangleBorder(
-                    //   borderRadius: BorderRadius.circular(5.0)
-                    //)
-                    shape: StadiumBorder(),
-                  )
-                ),
-                ),
-                SizedBox(
-                  width: 16.0,
-                ),
-                RaisedButton.icon(
-                  // child: Text("button"), 
-                  label:Text('button'),
-                  elevation: 0.0,
-                  icon: Icon(Icons.chat),
-                  onPressed: (){},
-                  splashColor: Colors.grey,
-                  textColor: Theme.of(context).accentColor,
-                ),
-              ],
-            );
-
+    final Widget FixedWidthButton = Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Container(
+          width: 130.0,
+          child: OutlineButton(
+            child: Text('Button'),
+            onPressed: () {},
+            splashColor: Colors.grey[100],
+            borderSide: BorderSide(
+              color: Colors.black,
+            ),
+            textColor: Colors.black,
+            highlightedBorderColor: Colors.grey,
+          ),
+        ),
+      ],
+    );
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('ButtomDemo'),
+        title: Text('ButtonDemo'),
         elevation: 0.0,
       ),
       body: Container(
-        // color: Colors.blue,
         padding: EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Container(
-              width: 1000.0,
-
-              child:OutlineButton.icon(
-                  // child: Text("button"), 
-                  label:Text('button'),
-                  // elevation: 0.0,
-                  icon: Icon(Icons.chat),
-                  onPressed: (){},
-                  splashColor: Colors.grey,
-                  textColor: Theme.of(context).accentColor,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  width: 130.0,
+                  child: OutlineButton(
+                    child: Text('Button'),
+                    onPressed: () {},
+                    splashColor: Colors.grey[100],
+                    borderSide: BorderSide(
+                      color: Colors.black,
+                    ),
+                    textColor: Colors.black,
+                    highlightedBorderColor: Colors.grey,
+                  ),
                 ),
+              ],
             ),
           ],
         ),
-      ),
+      )
     );
   }
 }
@@ -188,23 +184,57 @@ class _WidgetDemo extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                
+
               ],
-            )
+            ),
           ],
         ),
+      )
+    );
+  }
+}
+
+class FloatingActionButtonDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final Widget _floatingActionButton = FloatingActionButton(
+      onPressed: () {},
+      child: Icon(Icons.add),
+      elevation: 0.0,
+      backgroundColor: Colors.black87,
+      // shape: BeveledRectangleBorder(
+      //   borderRadius: BorderRadius.circular(30.0)
+      // ),
+    );
+
+    final Widget _floatingActionButtonExtended = FloatingActionButton.extended(
+      onPressed: () {},
+      icon: Icon(Icons.add),
+      label: Text('Add'),
+    );
+    
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('FloatingActionButtonDemo'),
+        elevation: 0.0,
+      ),
+      floatingActionButton: _floatingActionButton,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        child: Container(
+          height: 80.0,
+        ),
+        shape: CircularNotchedRectangle(),
       ),
     );
   }
 }
 
-
-class ListofItem extends StatelessWidget {
-
+class ListItem extends StatelessWidget {
   final String title;
   final Widget page;
 
-  ListofItem({
+  ListItem({
     this.title,
     this.page,
   });
@@ -213,13 +243,9 @@ class ListofItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(title),
-      onTap: (){
+      onTap: () {
         Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context){
-              return page;
-            }
-          )
+          MaterialPageRoute(builder: (context) => page),
         );
       },
     );
