@@ -60,14 +60,18 @@ class ButtomDemo extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Theme(
-                  child:RaisedButton(
+                  child:OutlineButton(
                   child: Text("button"), 
                   onPressed: (){},
                   splashColor: Colors.grey,
+                  borderSide: BorderSide(
+                    color: Colors.black,
+                  ),
                   // color: Theme.of(context).accentColor,
                   // textTheme: ButtonTextTheme.primary,
-                  // textColor: Theme.of(context).accentColor,
-                  elevation: 0.0,
+                  textColor: Colors.black,
+                  highlightedBorderColor: Colors.grey,
+                  // elevation: 0.0,
                 ),
                 // data: ThemeData(),
                 data: Theme.of(context).copyWith(
@@ -84,10 +88,10 @@ class ButtomDemo extends StatelessWidget {
                 SizedBox(
                   width: 16.0,
                 ),
-                RaisedButton.icon(
+                OutlineButton.icon(
                   // child: Text("button"), 
                   label:Text('button'),
-                  elevation: 0.0,
+                  // elevation: 0.0,
                   icon: Icon(Icons.chat),
                   onPressed: (){},
                   splashColor: Colors.grey,
