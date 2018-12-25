@@ -34,10 +34,24 @@ class RegisterFormState extends State<RegisterForm> {
 
  void subRegisterForm() {
     RegisterFormKey.currentState.save();
+    RegisterFormKey.currentState.validate();
     debugPrint('Username: $Username');
     debugPrint('Password: $Password');
   }
-
+String  validatorUsername(value){
+  if(value.isEmpty){
+    return 'Username is Empty';
+  }else{
+    return null;
+  }
+}
+String  validatorPassword(value){
+  if(value.isEmpty){
+    return 'Password is Empty';
+  }else{
+    return null;
+  }
+}
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -51,6 +65,7 @@ class RegisterFormState extends State<RegisterForm> {
             onSaved: (value){
               Username = value;
             },
+            validator: validatorUsername ,
           ),
           TextFormField(
             obscureText: true,
@@ -60,6 +75,7 @@ class RegisterFormState extends State<RegisterForm> {
             onSaved: (value){
               Password = value;
             },
+            validator: validatorPassword ,
           ),
           SizedBox(height: 32.0,),
           Container(
