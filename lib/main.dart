@@ -5,6 +5,7 @@ import 'demo/ListViewDemo.dart';
 import 'demo/basicdemo.dart';
 import 'demo/LayoutsDemo.dart';
 import 'demo/viewdemo.dart';
+import 'demo/sliverDemo.dart';
 
 void main(){
 
@@ -16,7 +17,7 @@ class App extends StatelessWidget{
   @override //覆盖父类build方法
   Widget build(BuildContext context){
     return MaterialApp(
-      home: Home(),
+      home: sliverDemo(),
       theme: ThemeData(
         primarySwatch:Colors.yellow,
         highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
