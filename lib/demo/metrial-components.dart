@@ -59,12 +59,27 @@ class ButtomDemo extends StatelessWidget {
     final Widget _buttonDemo = Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                RaisedButton(
+                Theme(
+                  child:RaisedButton(
                   child: Text("button"), 
                   onPressed: (){},
                   splashColor: Colors.grey,
-                  textColor: Theme.of(context).accentColor,
+                  // color: Theme.of(context).accentColor,
+                  // textTheme: ButtonTextTheme.primary,
+                  // textColor: Theme.of(context).accentColor,
                   elevation: 0.0,
+                ),
+                // data: ThemeData(),
+                data: Theme.of(context).copyWith(
+                  buttonColor: Theme.of(context).accentColor,
+                  buttonTheme: ButtonThemeData(
+                    textTheme: ButtonTextTheme.primary,
+                    // shape:BeveledRectangleBorder(
+                    //   borderRadius: BorderRadius.circular(5.0)
+                    //)
+                    shape: StadiumBorder(),
+                  )
+                ),
                 ),
                 SizedBox(
                   width: 16.0,
@@ -80,6 +95,48 @@ class ButtomDemo extends StatelessWidget {
                 ),
               ],
             );
+
+final Widget _raisedbuttonDemo = Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Theme(
+                  child:RaisedButton(
+                  child: Text("button"), 
+                  onPressed: (){},
+                  splashColor: Colors.grey,
+                  // color: Theme.of(context).accentColor,
+                  // textTheme: ButtonTextTheme.primary,
+                  // textColor: Theme.of(context).accentColor,
+                  elevation: 0.0,
+                ),
+                // data: ThemeData(),
+                data: Theme.of(context).copyWith(
+                  buttonColor: Theme.of(context).accentColor,
+                  buttonTheme: ButtonThemeData(
+                    textTheme: ButtonTextTheme.primary,
+                    // shape:BeveledRectangleBorder(
+                    //   borderRadius: BorderRadius.circular(5.0)
+                    //)
+                    shape: StadiumBorder(),
+                  )
+                ),
+                ),
+                SizedBox(
+                  width: 16.0,
+                ),
+                RaisedButton.icon(
+                  // child: Text("button"), 
+                  label:Text('button'),
+                  elevation: 0.0,
+                  icon: Icon(Icons.chat),
+                  onPressed: (){},
+                  splashColor: Colors.grey,
+                  textColor: Theme.of(context).accentColor,
+                ),
+              ],
+            );
+
+
     return Scaffold(
       appBar: AppBar(
         title: Text('ButtomDemo'),
