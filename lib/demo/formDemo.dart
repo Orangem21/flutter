@@ -9,7 +9,15 @@ class formDemo extends StatelessWidget {
           data: Theme.of(context).copyWith(
             primaryColor: Colors.black,
           ),
-          child:ThemeDemo(),
+          child:Container(
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                TextFieldDemo(),
+              ],
+            ) ,
+          ),
         ),
     );
   }
@@ -20,6 +28,19 @@ class ThemeDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         color: Theme.of(context).accentColor,
+    );
+  }
+}
+
+class TextFieldDemo extends StatefulWidget {
+  _TextFieldDemoState createState() => _TextFieldDemoState();
+}
+
+class _TextFieldDemoState extends State<TextFieldDemo> {
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+
     );
   }
 }
