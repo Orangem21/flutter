@@ -14,6 +14,7 @@ class sliverDemo extends StatelessWidget{
                floating: true,
                expandedHeight: 178.0,
                flexibleSpace: FlexibleSpaceBar(
+                 background: Image.network('https://resources.ninghao.net/images/overkill.png',fit:BoxFit.cover),
                  title:Text('Orange Flutter'.toUpperCase(),
                   style: TextStyle(
                     fontSize: 15.0,
