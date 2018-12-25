@@ -40,6 +40,12 @@ class _TextFieldDemoState extends State<TextFieldDemo> {
   @override
   Widget build(BuildContext context) {
     return TextField(
+        onChanged: (text) {
+          // debugPrint(text);
+        },
+        onSubmitted: (vaule){
+          debugPrint(vaule);
+        },
         decoration: InputDecoration(
           icon:Icon(Icons.subject),
           labelText: 'Title',
