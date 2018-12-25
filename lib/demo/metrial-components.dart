@@ -56,22 +56,37 @@ class FloatingActionButtonDemo extends StatelessWidget {
 class ButtomDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final Widget _buttonDemo = Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                FlatButton(
+                  child: Text("button"), 
+                  onPressed: (){},
+                  splashColor: Colors.grey,
+                  textColor: Theme.of(context).accentColor,
+                ),
+                FlatButton.icon(
+                  // child: Text("button"), 
+                  label:Text('button'),
+                  icon: Icon(Icons.chat),
+                  onPressed: (){},
+                  splashColor: Colors.grey,
+                  textColor: Theme.of(context).accentColor,
+                ),
+              ],
+            );
     return Scaffold(
       appBar: AppBar(
         title: Text('ButtomDemo'),
         elevation: 0.0,
       ),
       body: Container(
+        // color: Colors.blue,
         padding: EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-
-              ],
-            )
+            _buttonDemo,
           ],
         ),
       ),
