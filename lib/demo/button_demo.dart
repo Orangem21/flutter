@@ -1,31 +1,9 @@
 import 'package:flutter/material.dart';
-import 'button_demo.dart';
-import 'floatActionDemo.dart';
-import 'popup_menudemo.dart';
-
-class MaterialComponents extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('MaterialComponents'),
-        elevation: 0.0,
-      ),
-      body: ListView(
-        children: <Widget>[
-          ListItem(title: 'PopupMenuButton', page: popup_menudemo()),
-          ListItem(title: 'Button', page: ButtonDemo()),
-          ListItem(title: 'FloatingActionButton', page: FloatingActionButtonDemo()),
-        ],
-      ),
-    );
-  }
-}
 
 class ButtonDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Widget FlatButtonDemo = Row(
+    final Widget flatButtonDemo = Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         FlatButton(
@@ -44,7 +22,7 @@ class ButtonDemo extends StatelessWidget {
       ],
     );
 
-    final Widget RaisedButtonDemo = Row(
+    final Widget raisedButtonDemo = Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Theme(
@@ -80,7 +58,7 @@ class ButtonDemo extends StatelessWidget {
       ],
     );
     
-    final Widget OutlineButtonDemo = Row(
+    final Widget outlineButtonDemo = Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Theme(
@@ -118,7 +96,7 @@ class ButtonDemo extends StatelessWidget {
       ],
     );
 
-    final Widget FixedWidthButton = Row(
+    final Widget fixedWidthButton = Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Container(
@@ -137,7 +115,7 @@ class ButtonDemo extends StatelessWidget {
       ],
     );
 
-    final Widget ExpandedWidthButton = Row(
+    final Widget expandedWidthButton = Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Expanded(
@@ -171,7 +149,7 @@ class ButtonDemo extends StatelessWidget {
               ],
             );
 
-    final Widget ButtonBarButton = Row(
+    final Widget buttonBarButton = Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Theme(
@@ -217,64 +195,15 @@ class ButtonDemo extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            FlatButtonDemo,
-            RaisedButtonDemo,
-            OutlineButtonDemo,
-            FixedWidthButton,
-            ExpandedWidthButton,
-            ButtonBarButton,
+            flatButtonDemo,
+            raisedButtonDemo,
+            outlineButtonDemo,
+            fixedWidthButton,
+            expandedWidthButton,
+            buttonBarButton,
           ],
         ),
       )
-    );
-  }
-}
-
-class _WidgetDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('_WidgetDemo'),
-        elevation: 0.0,
-      ),
-      body: Container(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                ButtonDemo(),
-              ],
-            ),
-          ],
-        ),
-      )
-    );
-  }
-}
-
-
-class ListItem extends StatelessWidget {
-  final String title;
-  final Widget page;
-
-  ListItem({
-    this.title,
-    this.page,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(title),
-      onTap: () {
-        Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => page),
-        );
-      },
     );
   }
 }
