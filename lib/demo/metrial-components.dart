@@ -10,9 +10,8 @@ class MaterialComponents extends StatelessWidget {
       ),
       body:ListView(
         children: <Widget>[
-          ListofItem(title:'FloatingActionButton',page:FloatingActionButtonDemo(
-            
-          )),
+          ListofItem(title:'Button',page:ButtomDemo()),
+          ListofItem(title:'FloatingActionButton',page:FloatingActionButtonDemo()),
         ],
       )
     );
@@ -24,9 +23,9 @@ class FloatingActionButtonDemo extends StatelessWidget {
     child: Icon(Icons.add),
     elevation: 0.0,
     backgroundColor: Colors.black87,
-    shape: BeveledRectangleBorder(
-      borderRadius: BorderRadius.circular(10.0),
-    ),
+    // shape: BeveledRectangleBorder(
+    //   borderRadius: BorderRadius.circular(10.0),
+    // ),
   );
 
   final Widget _floatingActionButtonExtended = FloatingActionButton.extended(
@@ -41,13 +40,74 @@ class FloatingActionButtonDemo extends StatelessWidget {
       appBar: AppBar(
         title: Text('FloatingActionButtonDemo'),
       ),
-      floatingActionButton: _floatingActionButtonExtended,
+      floatingActionButton: _floatingActionButton,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        child: Container(
+          height: 80.0,
+        ),
+      ),
+    );
+  }
+}
+
+
+class ButtomDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('ButtomDemo'),
+        elevation: 0.0,
+      ),
+      body: Container(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _WidgetDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('_WidgetDemo'),
+        elevation: 0.0,
+      ),
+      body: Container(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                
+              ],
+            )
+          ],
+        ),
+      ),
     );
   }
 }
 
 
 class ListofItem extends StatelessWidget {
+
   final String title;
   final Widget page;
 
