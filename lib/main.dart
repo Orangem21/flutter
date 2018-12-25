@@ -18,6 +18,10 @@ class App extends StatelessWidget{
   @override //覆盖父类build方法
   Widget build(BuildContext context){
     return MaterialApp(
+      routes: {
+        '/about':(context) => Page(title:'about'),
+
+      },
       home: NavigatorDemo(),
       theme: ThemeData(
         primarySwatch:Colors.yellow,
