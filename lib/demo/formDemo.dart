@@ -61,6 +61,7 @@ String  validatorPassword(value){
           TextFormField(
             decoration:InputDecoration(
               labelText: 'UserName',
+              // helperText: 'UserName',
             ) ,
             onSaved: (value){
               Username = value;
@@ -71,6 +72,7 @@ String  validatorPassword(value){
             obscureText: true,
             decoration:InputDecoration(
               labelText: 'Password',
+              // helperText: 'PassWord',
             ) ,
             onSaved: (value){
               Password = value;
