@@ -7,6 +7,7 @@ import 'demo/LayoutsDemo.dart';
 import 'demo/viewdemo.dart';
 import 'demo/sliverDemo.dart';
 import 'demo/NavigatorDemo.dart';
+import 'demo/formDemo.dart';
 
 void main(){
 
@@ -18,16 +19,18 @@ class App extends StatelessWidget{
   @override //覆盖父类build方法
   Widget build(BuildContext context){
     return MaterialApp(
-      // initialRoute: '/',
-      // routes: {
-      //   '/':(context) => NavigatorDemo(),
-      //   '/about':(context) => Page(title:'about'),
-      // },
-      home: Home(),
+      initialRoute: '/form',
+      routes: {
+        '/form':(context)=>formDemo(),
+        '/':(context) => NavigatorDemo(),
+        '/about':(context) => Page(title:'about'),
+      },
+      // home: Home(),
       theme: ThemeData(
         primarySwatch:Colors.yellow,
         highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
         splashColor: Colors.white70,
+        accentColor: Color.fromRGBO(3, 54, 255, 1.0)
       ),
     );
   }
