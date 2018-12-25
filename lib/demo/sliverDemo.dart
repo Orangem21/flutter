@@ -9,7 +9,19 @@ class sliverDemo extends StatelessWidget{
          body: CustomScrollView(
            slivers: <Widget>[
              SliverAppBar(
-               title: Text("Orange"),
+              //  pinned: true,
+              //  title: Text("Orange"),
+               floating: true,
+               expandedHeight: 178.0,
+               flexibleSpace: FlexibleSpaceBar(
+                 title:Text('Orange Flutter'.toUpperCase(),
+                  style: TextStyle(
+                    fontSize: 15.0,
+                    letterSpacing: 3.0,
+                    fontWeight: FontWeight.w400,
+                  ),
+                 )
+               ),
              ),
              SliverSafeArea(
                sliver: SliverPadding(
