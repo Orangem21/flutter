@@ -8,11 +8,27 @@ class sliverDemo extends StatelessWidget{
        return Scaffold(
          body: CustomScrollView(
            slivers: <Widget>[
-             SliverGrid(
+             SliverPadding(
+               padding: EdgeInsets.all(8.0),
+               sliver: SliverGridDemo(),
+             )
+           ],
+         ),
+       );
+     }
+}
+
+
+class SliverGridDemo extends StatelessWidget{
+    @override
+      Widget build(BuildContext context) {
+        // TODO: implement build
+        return SliverGrid(
                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                  crossAxisCount: 2,
                  crossAxisSpacing: 8.0,
                  mainAxisSpacing: 8.0,
+                 childAspectRatio: 1,
                ),
                delegate: SliverChildBuilderDelegate(
                  (BuildContext context,int index){
@@ -25,9 +41,6 @@ class sliverDemo extends StatelessWidget{
                  },
                  childCount: posts.length,
                  ),
-             ),
-           ],
-         ),
-       );
-     }
-}
+             );
+      }
+}}
