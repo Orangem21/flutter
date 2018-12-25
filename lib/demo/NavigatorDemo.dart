@@ -9,10 +9,16 @@ class NavigatorDemo extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             FlatButton(child: Text('Home'),
-              onPressed: null,
+              onPressed: (null),
             ),
             FlatButton(child: Text('About'),
-              onPressed: null,
+              onPressed: (){
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder:(BuildContext context)=> Page(title: 'About')
+                  )
+                );
+              },
             )
           ],
         ),
