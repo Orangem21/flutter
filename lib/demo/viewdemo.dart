@@ -36,9 +36,65 @@ class viewDemo extends StatelessWidget{
   @override
     Widget build(BuildContext context) {
       // TODO: implement build
-      return PageView.builder(
-        itemCount: posts.length,
-        itemBuilder: _pageViewBuilder,
+      // return PageView.builder(
+      //   itemCount: posts.length,
+      //   itemBuilder: _pageViewBuilder,
+      // );
+
+      return GridView.count(
+        crossAxisCount: 3,
+        crossAxisSpacing: 16.0,
+        mainAxisSpacing: 16.0,
+        children: <Widget>[
+          Container(
+            color: Colors.grey[300],
+            alignment: Alignment(0.0, 0.0),
+            child: Text(
+              'Item',
+              style:TextStyle(fontSize: 18.0,color: Colors.grey)
+            ),
+          ),
+                    Container(
+            color: Colors.grey[300],
+            alignment: Alignment(0.0, 0.0),
+            child: Text(
+              'Item',
+              style:TextStyle(fontSize: 18.0,color: Colors.grey)
+            ),
+          ),
+          Container(
+            color: Colors.grey[300],
+            alignment: Alignment(0.0, 0.0),
+            child: Text(
+              'Item',
+              style:TextStyle(fontSize: 18.0,color: Colors.grey)
+            ),
+          ),
+          Container(
+            color: Colors.grey[300],
+            alignment: Alignment(0.0, 0.0),
+            child: Text(
+              'Item',
+              style:TextStyle(fontSize: 18.0,color: Colors.grey)
+            ),
+          ),
+          Container(
+            color: Colors.grey[300],
+            alignment: Alignment(0.0, 0.0),
+            child: Text(
+              'Item',
+              style:TextStyle(fontSize: 18.0,color: Colors.grey)
+            ),
+          ),
+          Container(
+            color: Colors.grey[300],
+            alignment: Alignment(0.0, 0.0),
+            child: Text(
+              'Item',
+              style:TextStyle(fontSize: 18.0,color: Colors.grey)
+            ),
+          ),
+        ],
       );
     }
 }
