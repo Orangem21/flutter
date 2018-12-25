@@ -5,6 +5,9 @@ class popup_menudemo extends StatefulWidget {
 }
 
 class _popup_menudemoState extends State<popup_menudemo> {
+
+  String _currentMenuItem  = 'Home';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +23,30 @@ class _popup_menudemoState extends State<popup_menudemo> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                
+                Text(_currentMenuItem),
+                PopupMenuButton(
+                  onSelected: (vaule){
+                    print(vaule);
+                    setState((){
+                      _currentMenuItem = vaule;     
+                    });
+                  },
+                  itemBuilder: (BuildContext context)=>[
+                    PopupMenuItem(
+                      value: 'Home',
+                      child: Text('Home'),
+                    ),
+                    PopupMenuItem(
+                      value: 'About',
+                      child: Text('About'),
+                    ),
+                    PopupMenuItem(
+                      value: 'Me',
+                      child: Text('Me'),
+                    )
+
+                  ],
+                ),
               ],
             ),
           ],
