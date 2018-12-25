@@ -40,6 +40,13 @@ class _TextFieldDemoState extends State<TextFieldDemo> {
   @override
   Widget build(BuildContext context) {
     return TextField(
+        decoration: InputDecoration(
+          icon:Icon(Icons.subject),
+          labelText: 'Title',
+          hintText: 'Enter the post title.',
+          // border: OutlineInputBorder(),
+          filled: true,
+        ),
 
     );
   }
