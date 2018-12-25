@@ -167,6 +167,42 @@ class ButtonDemo extends StatelessWidget {
               ],
             );
 
+    final Widget ButtonBarButton = Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Theme(
+                  data: Theme.of(context).copyWith(
+                    buttonTheme: ButtonThemeData(
+                      padding: EdgeInsets.symmetric(horizontal: 32.0),
+                    ),
+                  ),
+                  child:ButtonBar(
+                  children: <Widget>[
+                    OutlineButton(
+                    child: Text('Button'),
+                    onPressed: () {},
+                    splashColor: Colors.grey[100],
+                    borderSide: BorderSide(
+                      color: Colors.black,
+                    ),
+                    textColor: Colors.black,
+                    highlightedBorderColor: Colors.grey,
+                  ),
+                  OutlineButton(
+                    child: Text('Button'),
+                    onPressed: () {},
+                    splashColor: Colors.grey[100],
+                    borderSide: BorderSide(
+                      color: Colors.black,
+                    ),
+                    textColor: Colors.black,
+                    highlightedBorderColor: Colors.grey,
+                  ),
+                  ],
+                ) ,
+                )
+              ],
+            );
     return Scaffold(
       appBar: AppBar(
         title: Text('ButtonDemo'),
@@ -180,9 +216,15 @@ class ButtonDemo extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Expanded(
-                  // width: 130.0,
-                  child: OutlineButton(
+                Theme(
+                  data: Theme.of(context).copyWith(
+                    buttonTheme: ButtonThemeData(
+                      padding: EdgeInsets.symmetric(horizontal: 32.0),
+                    ),
+                  ),
+                  child:ButtonBar(
+                  children: <Widget>[
+                    OutlineButton(
                     child: Text('Button'),
                     onPressed: () {},
                     splashColor: Colors.grey[100],
@@ -192,12 +234,7 @@ class ButtonDemo extends StatelessWidget {
                     textColor: Colors.black,
                     highlightedBorderColor: Colors.grey,
                   ),
-                ),
-                SizedBox(width: 16.0,),
-                Expanded(
-                  flex: 2,
-                  // width: 130.0,
-                  child: OutlineButton(
+                  OutlineButton(
                     child: Text('Button'),
                     onPressed: () {},
                     splashColor: Colors.grey[100],
@@ -207,7 +244,9 @@ class ButtonDemo extends StatelessWidget {
                     textColor: Colors.black,
                     highlightedBorderColor: Colors.grey,
                   ),
-                ),
+                  ],
+                ) ,
+                )
               ],
             ),
           ],
