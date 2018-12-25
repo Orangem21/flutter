@@ -5,6 +5,9 @@ class viewDemo extends StatelessWidget{
     Widget build(BuildContext context) {
       // TODO: implement build
       return PageView(
+          pageSnapping: false,
+          reverse: true,
+          scrollDirection: Axis.vertical ,
           children: <Widget>[
              Container(
               color: Colors.brown[900],
