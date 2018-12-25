@@ -152,7 +152,19 @@ final Widget _raisedbuttonDemo = Row(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            _buttonDemo,
+            Container(
+              width: 1000.0,
+
+              child:OutlineButton.icon(
+                  // child: Text("button"), 
+                  label:Text('button'),
+                  // elevation: 0.0,
+                  icon: Icon(Icons.chat),
+                  onPressed: (){},
+                  splashColor: Colors.grey,
+                  textColor: Theme.of(context).accentColor,
+                ),
+            ),
           ],
         ),
       ),
