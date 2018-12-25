@@ -1,6 +1,50 @@
 import 'package:flutter/material.dart';
+import '../model/post.dart';
 
 class viewDemo extends StatelessWidget{
+
+  Widget _pageViewBuilder (BuildContext context,int index){
+    return Stack(
+      children: <Widget>[
+        SizedBox.expand(
+          child: Image.network(
+            posts[index].imageUrl,
+            fit:BoxFit.cover,
+          ),
+        ),
+        Positioned(
+          bottom: 8.0,
+          left: 8.0,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                posts[index].title,
+                style: TextStyle(fontWeight: FontWeight.bold ),
+              ),
+              Text(
+                posts[index].author,
+              )
+            ],
+          ),
+
+        )
+      ],
+    );
+  }
+
+  @override
+    Widget build(BuildContext context) {
+      // TODO: implement build
+      return PageView.builder(
+        itemCount: posts.length,
+        itemBuilder: _pageViewBuilder,
+      );
+    }
+}
+
+
+class pageViewDemo extends StatelessWidget{
   @override
     Widget build(BuildContext context) {
       // TODO: implement build
