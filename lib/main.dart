@@ -17,7 +17,7 @@ class App extends StatelessWidget{
   @override //覆盖父类build方法
   Widget build(BuildContext context){
     return MaterialApp(
-      home: sliverDemo(),
+      home: Home(),
       theme: ThemeData(
         primarySwatch:Colors.yellow,
         highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
@@ -69,7 +69,7 @@ class Home extends StatelessWidget{
             BasicDemo(),
             // Icon(Icons.directions_bike,color: Colors.red,size: 128.0),
             LayoutsDemo(),
-            viewDemo(),
+            sliverDemo(),
           ],
         ),
         drawer:  DrawerDemo() ,
