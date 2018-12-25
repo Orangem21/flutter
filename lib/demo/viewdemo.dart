@@ -51,8 +51,9 @@ class viewDemo extends StatelessWidget{
       //   itemBuilder: _pageViewBuilder,
       // );
 
-      return GridView.count(
-        crossAxisCount: 3,
+      return GridView.extent(
+        maxCrossAxisExtent: 150.0,
+        // crossAxisCount: 3,
         crossAxisSpacing: 16.0,
         mainAxisSpacing: 16.0,
         children: _buildtiles(100),
