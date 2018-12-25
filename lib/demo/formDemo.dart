@@ -30,13 +30,20 @@ class RegisterFormState extends State<RegisterForm> {
 
   final RegisterFormKey = GlobalKey<FormState>();
 
+  bool autovalidate = false;
+
   String Username,Password;
 
  void subRegisterForm() {
-    RegisterFormKey.currentState.save();
-    RegisterFormKey.currentState.validate();
-    debugPrint('Username: $Username');
-    debugPrint('Password: $Password');
+    if(RegisterFormKey.currentState.validate()){
+      RegisterFormKey.currentState.save();
+      debugPrint('Username: $Username');
+      debugPrint('Password: $Password');
+    }else{
+      setState(() {
+        autovalidate = true;
+      });
+    }
   }
 String  validatorUsername(value){
   if(value.isEmpty){
@@ -67,6 +74,7 @@ String  validatorPassword(value){
               Username = value;
             },
             validator: validatorUsername ,
+            autovalidate: autovalidate,
           ),
           TextFormField(
             obscureText: true,
@@ -78,6 +86,7 @@ String  validatorPassword(value){
               Password = value;
             },
             validator: validatorPassword ,
+            autovalidate: autovalidate,
           ),
           SizedBox(height: 32.0,),
           Container(
