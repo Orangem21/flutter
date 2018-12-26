@@ -18,6 +18,8 @@ String _currentMenuItem  = 'Home';
 
   double _sliderItemA = 0.0;
 
+  final DateTime selectDate = DateTime.now();
+
   void _handleValueChanged(int value){
     setState(() {
           _radioGroupA = value;
@@ -36,8 +38,20 @@ String _currentMenuItem  = 'Home';
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            
+            InkWell(
+              onTap: (){},
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(DateFormat.yMEd().format(selectDate)),
+                  Icon(Icons.arrow_drop_down),
+                ],
+              ),
+            ),
 
-        
+
+
             // SwitchListTile(
             //   value: _switchItemA,
             //   onChanged: (value){
@@ -147,8 +161,8 @@ String _currentMenuItem  = 'Home';
                 // ),
               ],
             ),
-            SizedBox(height: 8.0,),
-            Text('SliderValue:${_sliderItemA.toInt()}'),
+            // SizedBox(height: 8.0,),
+            // Text('SliderValue:${_sliderItemA.toInt()}'),
           ],
         ),
       )
