@@ -21,11 +21,26 @@ String _currentMenuItem  = 'Home';
 
   DateTime selectDate = DateTime.now();
 
+  TimeOfDay selectTime = TimeOfDay.now();
+
   void _handleValueChanged(int value){
     setState(() {
           _radioGroupA = value;
         });
   }
+
+_selectTime() async {
+  final TimeOfDay time = await showTimePicker(
+    context: context,
+    initialTime: selectTime,
+  );
+  if (time == null)return;
+
+  setState(() {
+      selectTime = time;
+    });
+}
+
 
   _selectDate() async{
     final DateTime date = await showDatePicker(
@@ -60,6 +75,16 @@ String _currentMenuItem  = 'Home';
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(DateFormat.yMEd().format(selectDate)),
+                  Icon(Icons.arrow_drop_down),
+                ],
+              ),
+            ),
+                        InkWell(
+              onTap: _selectTime,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(selectTime.format(context)),
                   Icon(Icons.arrow_drop_down),
                 ],
               ),
