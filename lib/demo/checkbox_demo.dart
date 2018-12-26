@@ -32,6 +32,21 @@ String _currentMenuItem  = 'Home';
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+
+            SwitchListTile(
+              value: _switchItemA,
+              onChanged: (value){
+                setState(() {
+                         _switchItemA = value;         
+                });
+              },
+              title: Text('Orange'),
+              subtitle: Text('Orange Never Give up'),
+              secondary: Icon(_switchItemA?Icons.visibility:Icons.visibility_off),
+              selected: _switchItemA,
+            ),
+            
+
             // RadioListTile(
 
             //   activeColor: Colors.black,
@@ -69,15 +84,15 @@ String _currentMenuItem  = 'Home';
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 
-                Text(_switchItemA?':Smile':':Cry',style: TextStyle(color: Colors.black,fontSize: 32.0),),
-                Switch(
-                  value: _switchItemA,
-                  onChanged: (value){
-                    setState(() {
-                      _switchItemA = value;
-                    });
-                  },
-                ),
+                // Text(_switchItemA?':Smile':':Cry',style: TextStyle(color: Colors.black,fontSize: 32.0),),
+                // Switch(
+                //   value: _switchItemA,
+                //   onChanged: (value){
+                //     setState(() {
+                //       _switchItemA = value;
+                //     });
+                //   },
+                // ),
                 // Radio(
                 //   value: 0,
                 //   groupValue: _radioGroupA,
