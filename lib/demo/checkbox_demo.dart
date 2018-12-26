@@ -8,9 +8,15 @@ class _checkBoxDemoState extends State<checkBoxDemo> {
 
 String _currentMenuItem  = 'Home';
 
+  int _radioGroupA = 0;
 
   bool _checkBoxStatusA = true;
 
+  void _handleValueChanged(int value){
+    setState(() {
+          _radioGroupA = value;
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,21 +30,35 @@ String _currentMenuItem  = 'Home';
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            CheckboxListTile(
-              value: _checkBoxStatusA,
-              onChanged: (value){
-                setState(() {
-                          _checkBoxStatusA = value;        
-                                });
-              },
-              title: Text('Orange'),
-              subtitle: Text('Never Give UP'),
-              secondary: Icon(Icons.bookmark),
-              selected : _checkBoxStatusA,
-            ),
+            // CheckboxListTile(
+            //   value: _checkBoxStatusA,
+            //   onChanged: (value){
+            //     setState(() {
+            //               _checkBoxStatusA = value;        
+            //                     });
+            //   },
+            //   title: Text('Orange'),
+            //   subtitle: Text('Never Give UP'),
+            //   secondary: Icon(Icons.bookmark),
+            //   selected : _checkBoxStatusA,
+            // ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                
+                Radio(
+                  value: 0,
+                  groupValue: _radioGroupA,
+                  onChanged: _handleValueChanged,
+                  activeColor: Colors.black,
+                ),
+                Radio(
+                  value: 1,
+                  groupValue: _radioGroupA,
+                  onChanged: _handleValueChanged,
+                  activeColor: Colors.black,
+                ),
+
                 // Text('Orange'),
                 // Checkbox(
                 //   value: _checkBoxStatusA,
