@@ -8,6 +8,10 @@ class _checkBoxDemoState extends State<checkBoxDemo> {
 
 String _currentMenuItem  = 'Home';
 
+
+  bool _checkBoxStatusA = true;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +27,16 @@ String _currentMenuItem  = 'Home';
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                
+                Text('Orange'),
+                Checkbox(
+                  value: _checkBoxStatusA,
+                  activeColor: Colors.black,
+                  onChanged: (value){
+                    setState(() {
+                      _checkBoxStatusA = value;
+                    });
+                  },
+                ),
               ],
             ),
           ],
