@@ -24,19 +24,31 @@ String _currentMenuItem  = 'Home';
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            CheckboxListTile(
+              value: _checkBoxStatusA,
+              onChanged: (value){
+                setState(() {
+                          _checkBoxStatusA = value;        
+                                });
+              },
+              title: Text('Orange'),
+              subtitle: Text('Never Give UP'),
+              secondary: Icon(Icons.bookmark),
+              selected : _checkBoxStatusA,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text('Orange'),
-                Checkbox(
-                  value: _checkBoxStatusA,
-                  activeColor: Colors.black,
-                  onChanged: (value){
-                    setState(() {
-                      _checkBoxStatusA = value;
-                    });
-                  },
-                ),
+                // Text('Orange'),
+                // Checkbox(
+                //   value: _checkBoxStatusA,
+                //   activeColor: Colors.black,
+                //   onChanged: (value){
+                //     setState(() {
+                //       _checkBoxStatusA = value;
+                //     });
+                //   },
+                // ),
               ],
             ),
           ],
