@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'dart:async';
 
 
 class checkBoxDemo extends StatefulWidget {
@@ -18,11 +19,25 @@ String _currentMenuItem  = 'Home';
 
   double _sliderItemA = 0.0;
 
-  final DateTime selectDate = DateTime.now();
+  DateTime selectDate = DateTime.now();
 
   void _handleValueChanged(int value){
     setState(() {
           _radioGroupA = value;
+        });
+  }
+
+  _selectDate() async{
+    final DateTime date = await showDatePicker(
+      context: context,
+      initialDate: selectDate,
+      firstDate: DateTime(1990),
+      lastDate: DateTime(2100),
+    );
+    if (date == null)return;
+
+    setState(() {
+          selectDate = date;
         });
   }
 
@@ -40,7 +55,7 @@ String _currentMenuItem  = 'Home';
           children: <Widget>[
             
             InkWell(
-              onTap: (){},
+              onTap: _selectDate,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
