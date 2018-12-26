@@ -14,6 +14,8 @@ String _currentMenuItem  = 'Home';
 
   bool _switchItemA = false;
 
+  double _sliderItemA = 0.0;
+
   void _handleValueChanged(int value){
     setState(() {
           _radioGroupA = value;
@@ -33,18 +35,19 @@ String _currentMenuItem  = 'Home';
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
 
-            SwitchListTile(
-              value: _switchItemA,
-              onChanged: (value){
-                setState(() {
-                         _switchItemA = value;         
-                });
-              },
-              title: Text('Orange'),
-              subtitle: Text('Orange Never Give up'),
-              secondary: Icon(_switchItemA?Icons.visibility:Icons.visibility_off),
-              selected: _switchItemA,
-            ),
+        
+            // SwitchListTile(
+            //   value: _switchItemA,
+            //   onChanged: (value){
+            //     setState(() {
+            //              _switchItemA = value;         
+            //     });
+            //   },
+            //   title: Text('Orange'),
+            //   subtitle: Text('Orange Never Give up'),
+            //   secondary: Icon(_switchItemA?Icons.visibility:Icons.visibility_off),
+            //   selected: _switchItemA,
+            // ),
             
 
             // RadioListTile(
@@ -84,6 +87,30 @@ String _currentMenuItem  = 'Home';
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 
+                
+
+                Slider(
+                  value:_sliderItemA,
+
+                  onChanged: (value){
+                    setState(() {
+                             _sliderItemA  = value;             
+                          });
+                  },
+
+                  min: 0.0,
+                  max: 10.0,
+                  divisions: 10,
+                  label: '${_sliderItemA.toInt()}',
+
+                  activeColor: Theme.of(context).accentColor,
+                  inactiveColor:Theme.of(context).accentColor.withOpacity(0.1) ,
+                ),
+
+                
+
+
+
                 // Text(_switchItemA?':Smile':':Cry',style: TextStyle(color: Colors.black,fontSize: 32.0),),
                 // Switch(
                 //   value: _switchItemA,
@@ -118,6 +145,8 @@ String _currentMenuItem  = 'Home';
                 // ),
               ],
             ),
+            SizedBox(height: 8.0,),
+            Text('SliderValue:${_sliderItemA.toInt()}'),
           ],
         ),
       )
