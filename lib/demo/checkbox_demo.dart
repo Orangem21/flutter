@@ -12,7 +12,7 @@ String _currentMenuItem  = 'Home';
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('popup_menudemo'),
+        title: Text('CHeckboxdemo'),
         elevation: 0.0,
       ),
       body: Container(
@@ -23,30 +23,7 @@ String _currentMenuItem  = 'Home';
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text(_currentMenuItem),
-                PopupMenuButton(
-                  onSelected: (vaule){
-                    print(vaule);
-                    setState((){
-                      _currentMenuItem = vaule;     
-                    });
-                  },
-                  itemBuilder: (BuildContext context)=>[
-                    PopupMenuItem(
-                      value: 'Home',
-                      child: Text('Home'),
-                    ),
-                    PopupMenuItem(
-                      value: 'About',
-                      child: Text('About'),
-                    ),
-                    PopupMenuItem(
-                      value: 'Me',
-                      child: Text('Me'),
-                    )
-
-                  ],
-                ),
+                
               ],
             ),
           ],
