@@ -89,23 +89,23 @@ String _currentMenuItem  = 'Home';
                 
                 
 
-                Slider(
-                  value:_sliderItemA,
+                // Slider(
+                //   value:_sliderItemA,
 
-                  onChanged: (value){
-                    setState(() {
-                             _sliderItemA  = value;             
-                          });
-                  },
+                //   onChanged: (value){
+                //     setState(() {
+                //              _sliderItemA  = value;             
+                //           });
+                //   },
 
-                  min: 0.0,
-                  max: 10.0,
-                  divisions: 10,
-                  label: '${_sliderItemA.toInt()}',
+                //   min: 0.0,
+                //   max: 10.0,
+                //   divisions: 10,
+                //   label: '${_sliderItemA.toInt()}',
 
-                  activeColor: Theme.of(context).accentColor,
-                  inactiveColor:Theme.of(context).accentColor.withOpacity(0.1) ,
-                ),
+                //   activeColor: Theme.of(context).accentColor,
+                //   inactiveColor:Theme.of(context).accentColor.withOpacity(0.1) ,
+                // ),
 
                 
 
