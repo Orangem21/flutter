@@ -19,7 +19,7 @@ class _StatemanagementState extends State<Statemanagement> {
         title: Text("StateManagentDemo"),
         elevation: 0.0,
       ),
-      body: Statebody(conut,_inceaseCount),
+      body: CounterWrapper(conut,_inceaseCount),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: _inceaseCount,
@@ -45,6 +45,19 @@ class Statebody extends StatelessWidget {
           label: Text('$conut'),
         ),
       ),
+    );
+  }
+}
+
+class CounterWrapper extends StatelessWidget {
+    final int conut;
+  final VoidCallback inceaseCount;
+
+  CounterWrapper(this.conut,this.inceaseCount);
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Statebody(conut,inceaseCount),
     );
   }
 }
