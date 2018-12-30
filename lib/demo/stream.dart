@@ -42,15 +42,19 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
       //   fetchData()
       // );
 
-      _streamController = StreamController<String>();
+      _streamController = StreamController.broadcast();
       _sinkDemo = _streamController.sink;
 
       void onData(String data){
         print('$data');
       }
+      void onDataAnother(String data){
+        print('$data from the second Stream');
+      }
       
       print("Start listening on stream");
       _streamSubscription = _streamController.stream.listen(onData);
+      _streamSubscription = _streamController.stream.listen(onDataAnother);
 
     }
 
