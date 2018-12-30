@@ -18,6 +18,11 @@ class StreamDemoHome extends StatefulWidget {
 }
 
 class _StreamDemoHomeState extends State<StreamDemoHome> {
+
+
+
+  StreamSubscription _streamSubscription;
+
   @override
     void initState() {
       
@@ -31,29 +36,53 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
       void onData(String data){
         print('$data');
       }
-
-      void onError(error){
-        print('Error: $error');
-      }
-
-      void onDone(){
-        print("Done!");
-      }
       
       print("Start listening on stream");
-      _streamDemo.listen(onData,onError: onError,onDone: onDone);
-
+      _streamSubscription = _streamDemo.listen(onData);
 
     }
 
+  void _onPaused(){
+    print('Pause Stream');
+    _streamSubscription.pause();
+  }
+  void _onResumed(){
+    print('Resume Stream');
+    _streamSubscription.resume();
+  }
+    void _onCanceled(){
+      print('Cancel Stream');
+    _streamSubscription.cancel();
+  }
+
   Future<String> fetchData() async {
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(Duration(seconds: 5));
+    // throw "Something Happend";
     return 'Hello';
   }
   @override
   Widget build(BuildContext context) {
     return Container(
-
+        child: Center(
+          
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              FlatButton(
+                child: Text("Pause"),
+                onPressed: _onPaused,
+                ),
+              FlatButton(
+                child: Text("Resume"),
+                onPressed: _onResumed,
+                ),
+              FlatButton(
+                child: Text("Cancel"),
+                onPressed: _onCanceled,
+                ),
+            ],
+          ),
+        ),
     );
   }
 }
