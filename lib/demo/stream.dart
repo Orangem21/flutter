@@ -22,6 +22,14 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
 
 
   StreamSubscription _streamSubscription;
+  StreamController<String> _streamController;
+
+@override
+  void dispose() {
+    _streamController.close();
+    super.dispose();
+  }
+
 
   @override
     void initState() {
@@ -29,16 +37,18 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
       super.initState();
 
       print("Create a steam");
-      Stream<String> _streamDemo = Stream.fromFuture(
-        fetchData()
-      );
+      // Stream<String> _streamDemo = Stream.fromFuture(
+      //   fetchData()
+      // );
+
+      _streamController = StreamController<String>();
 
       void onData(String data){
         print('$data');
       }
       
       print("Start listening on stream");
-      _streamSubscription = _streamDemo.listen(onData);
+      _streamSubscription = _streamController.stream.listen(onData);
 
     }
 
@@ -60,6 +70,12 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
     // throw "Something Happend";
     return 'Hello';
   }
+  void _addDataToStream() async {
+    print('Add data to String ');
+    String _data  = await fetchData();
+    _streamController.add(_data);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -68,6 +84,10 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              FlatButton(
+                child: Text("Add"),
+                onPressed: _addDataToStream,
+                ),
               FlatButton(
                 child: Text("Pause"),
                 onPressed: _onPaused,
