@@ -10,6 +10,7 @@ import 'demo/NavigatorDemo.dart';
 import 'demo/formDemo.dart';
 import 'demo/metrial-components.dart';
 import 'demo/statemanagement.dart';
+import 'demo/stream.dart';
 
 void main(){
 
@@ -21,8 +22,9 @@ class App extends StatelessWidget{
   @override //覆盖父类build方法
   Widget build(BuildContext context){
     return MaterialApp(
-      initialRoute: '/state',
+      initialRoute: '/stream',
       routes: {
+        '/stream': (context)=>streamDemo(),
         '/form':(context)=>formDemo(),
         '/':(context) => NavigatorDemo(),
         '/about':(context) => Page(title:'about'),
