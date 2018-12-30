@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'number.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -21,7 +22,6 @@ class MyApp extends StatelessWidget {
       print(e.toString());
     }
   //END
-// Image.network('https://i.v2ex.co/YXuImB2is.jpeg')
   }
   @override
   Widget build(BuildContext context) {
@@ -63,24 +63,9 @@ class MyApp extends StatelessWidget {
       appBar: AppBar(
         title: Text('Orange Calculator'),
         backgroundColor: Colors.orange.withOpacity(0.8),
-        elevation: 0.0, //阴影
+        elevation: 2.0, //阴影
       ),
-      body: page(),
     );
 
-  }
-}
-
-class page extends StatefulWidget {
-  _pageState createState() => _pageState();
-}
-
-class _pageState extends State<page> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      
-       
-    );
   }
 }
