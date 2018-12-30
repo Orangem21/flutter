@@ -9,6 +9,7 @@ import 'demo/sliverDemo.dart';
 import 'demo/NavigatorDemo.dart';
 import 'demo/formDemo.dart';
 import 'demo/metrial-components.dart';
+import 'demo/statemanagement.dart';
 
 void main(){
 
@@ -20,14 +21,15 @@ class App extends StatelessWidget{
   @override //覆盖父类build方法
   Widget build(BuildContext context){
     return MaterialApp(
-      initialRoute: '/mdc',
+      initialRoute: '/state',
       routes: {
         '/form':(context)=>formDemo(),
         '/':(context) => NavigatorDemo(),
         '/about':(context) => Page(title:'about'),
-        '/mdc':(context) =>MaterialComponents(),
+        '/mdc':(context) => MaterialComponents(),
+        '/state':(context) => Statemanagement(),
       },
-      // home: Home(),
+      //home: Home(),
       theme: ThemeData(
         primarySwatch:Colors.yellow,
         highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
