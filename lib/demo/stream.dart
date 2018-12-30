@@ -47,9 +47,9 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
       _sinkDemo = _streamController.sink;
 
       void onData(String data){
-        setState(() {
-                  _data = data;
-                });
+        // setState(() {
+        //           _data = data;
+        //         });
         print('$data');
       }
       void onDataAnother(String data){
@@ -95,7 +95,13 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
               children:<Widget>[ 
-                Text(_data),
+                StreamBuilder(
+                  stream: _streamController.stream,
+                  initialData: "Orange",
+                  builder: (context, snapshot){
+                    return Text('${snapshot.data}');
+                  },
+                ),
                 Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
