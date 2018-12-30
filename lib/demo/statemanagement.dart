@@ -6,6 +6,12 @@ class Statemanagement extends StatefulWidget {
 
 class _StatemanagementState extends State<Statemanagement> {
   int conut = 0;
+  void _inceaseCount(){
+          setState(() {
+            conut += 1;
+          });
+          debugPrint('$conut');
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,15 +19,10 @@ class _StatemanagementState extends State<Statemanagement> {
         title: Text("StateManagentDemo"),
         elevation: 0.0,
       ),
-      body: Statebody(conut),
+      body: Statebody(conut,_inceaseCount),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: (){
-          setState(() {
-            conut += 1;
-          });
-          debugPrint('$conut');
-        },
+        onPressed: _inceaseCount,
       ),
     );
   }
@@ -30,15 +31,17 @@ class _StatemanagementState extends State<Statemanagement> {
 class Statebody extends StatelessWidget {
 
   final int conut;
+  final VoidCallback inceaseCount;
 
-  Statebody(this.conut);
+  Statebody(this.conut,this.inceaseCount);
   //构造函数
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-        child:Chip(
+        child:ActionChip(
+          onPressed: inceaseCount,
           label: Text('$conut'),
         ),
       ),
