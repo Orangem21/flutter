@@ -5,59 +5,74 @@ class Statemanagement extends StatefulWidget {
 }
 
 class _StatemanagementState extends State<Statemanagement> {
-  int conut = 0;
+  int count = 0;
   void _inceaseCount(){
           setState(() {
-            conut += 1;
+            count += 1;
           });
-          debugPrint('$conut');
+          debugPrint('$count');
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("StateManagentDemo"),
-        elevation: 0.0,
-      ),
-      body: CounterWrapper(conut,_inceaseCount),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: _inceaseCount,
-      ),
+    return CounterProvider(
+        count: count,
+        incereaseCount: _inceaseCount,
+        child:Scaffold(
+        appBar: AppBar(
+          title: Text("StateManagentDemo"),
+          elevation: 0.0,
+        ),
+        body: Statebody(),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: _inceaseCount,
+        ),
+      )
     );
   }
 }
 
 class Statebody extends StatelessWidget {
-
-  final int conut;
-  final VoidCallback inceaseCount;
-
-  Statebody(this.conut,this.inceaseCount);
+  
   //构造函数
 
   @override
   Widget build(BuildContext context) {
+    final int count = CounterProvider.of(context).count;
+    final VoidCallback inceaseCount = CounterProvider.of(context).incereaseCount;
     return Container(
       child: Center(
         child:ActionChip(
           onPressed: inceaseCount,
-          label: Text('$conut'),
+          label: Text('$count'),
         ),
       ),
     );
   }
 }
 
-class CounterWrapper extends StatelessWidget {
-    final int conut;
-  final VoidCallback inceaseCount;
 
-  CounterWrapper(this.conut,this.inceaseCount);
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Statebody(conut,inceaseCount),
-    );
+class CounterProvider extends InheritedWidget {
+  CounterProvider({
+    this.count,
+    this.incereaseCount,
+    this.child,
+  }):super(child:child);
+
+  final Widget child;
+  final int count;
+  final VoidCallback incereaseCount;
+
+
+  static CounterProvider of(BuildContext context) {
+    return (context.inheritFromWidgetOfExactType(CounterProvider)as CounterProvider);
   }
+
+  @override
+  //是否通知重建
+  bool updateShouldNotify( CounterProvider oldWidget) {
+    return true;
+  }
+
+
 }
