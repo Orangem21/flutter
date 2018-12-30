@@ -13,11 +13,7 @@ class _StatemanagementState extends State<Statemanagement> {
         title: Text("StateManagentDemo"),
         elevation: 0.0,
       ),
-      body: Center(
-        child:Chip(
-          label: Text('$conut'),
-        ),
-      ),
+      body: Statebody(conut),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: (){
@@ -26,6 +22,25 @@ class _StatemanagementState extends State<Statemanagement> {
           });
           debugPrint('$conut');
         },
+      ),
+    );
+  }
+}
+
+class Statebody extends StatelessWidget {
+
+  final int conut;
+
+  Statebody(this.conut);
+  //构造函数
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center(
+        child:Chip(
+          label: Text('$conut'),
+        ),
       ),
     );
   }
