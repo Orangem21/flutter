@@ -24,6 +24,7 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
   StreamSubscription _streamSubscription;
   StreamController<String> _streamController;
   StreamSink _sinkDemo;
+  String _data = '...';
 
 @override
   void dispose() {
@@ -46,6 +47,9 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
       _sinkDemo = _streamController.sink;
 
       void onData(String data){
+        setState(() {
+                  _data = data;
+                });
         print('$data');
       }
       void onDataAnother(String data){
@@ -88,27 +92,32 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
     return Container(
         child: Center(
           
-          child: Row(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              FlatButton(
-                child: Text("Add"),
-                onPressed: _addDataToStream,
-                ),
-              FlatButton(
-                child: Text("Pause"),
-                onPressed: _onPaused,
-                ),
-              FlatButton(
-                child: Text("Resume"),
-                onPressed: _onResumed,
-                ),
-              FlatButton(
-                child: Text("Cancel"),
-                onPressed: _onCanceled,
-                ),
-            ],
-          ),
+              children:<Widget>[ 
+                Text(_data),
+                Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                FlatButton(
+                  child: Text("Add"),
+                  onPressed: _addDataToStream,
+                  ),
+                FlatButton(
+                  child: Text("Pause"),
+                  onPressed: _onPaused,
+                  ),
+                FlatButton(
+                  child: Text("Resume"),
+                  onPressed: _onResumed,
+                  ),
+                FlatButton(
+                  child: Text("Cancel"),
+                  onPressed: _onCanceled,
+                  ),
+              ],
+            ),
+          ]),
         ),
     );
   }
