@@ -6,7 +6,7 @@ class CounterHome extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    CounterBloc _counterBloc = CounterProvider.of(c ontext).bloc;
+    CounterBloc _counterBloc = CounterProvider.of(context).bloc;
     return Center(
         child: ActionChip(
           label: Text('0'),
