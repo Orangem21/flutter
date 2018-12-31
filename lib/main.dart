@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/demo/bloc.dart';
 import 'package:flutter_demo/demo/rxdart_demo.dart';
 import 'demo/Drawer.dart';
 import 'demo/BottomNavigationBartender.dart';
@@ -23,7 +24,7 @@ class App extends StatelessWidget{
   @override //覆盖父类build方法
   Widget build(BuildContext context){
     return MaterialApp(
-      initialRoute: '/rxdart',
+      initialRoute: '/bloc',
       routes: {
         '/stream': (context)=>streamDemo(),
         '/form':(context)=>formDemo(),
@@ -32,6 +33,7 @@ class App extends StatelessWidget{
         '/mdc':(context) => MaterialComponents(),
         '/state':(context) => Statemanagement(),
         '/rxdart':(context) => rxdartdemo(),
+        '/bloc' :(context)=>blocdemo(),
       },
       //home: Home(),
       theme: ThemeData(
