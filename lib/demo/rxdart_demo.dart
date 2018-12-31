@@ -20,12 +20,21 @@ class RxDartDemoHome extends StatefulWidget {
 }
 
 class _RxDartDemoHomeState extends State<RxDartDemoHome> {
+  PublishSubject<String> _textfieldSubject;
 
+
+  @override
+    void dispose() {
+      _textfieldSubject.close();
+      super.dispose();
+    }
   @override
     void initState() {
 
       super.initState();
 
+      _textfieldSubject = PublishSubject<String>();
+      _textfieldSubject.listen((data)=>print(data));
       // Observable<String> _observable = 
       // Observable(Stream.fromIterable(['Hello', '您好']));
       // Observable.fromFuture(Future.value('Hello'));
@@ -35,13 +44,13 @@ class _RxDartDemoHomeState extends State<RxDartDemoHome> {
       // _observable.listen(print);
 
 
-      ReplaySubject<String> _subject = ReplaySubject<String>(maxSize: 1);
+      // ReplaySubject<String> _subject = ReplaySubject<String>(maxSize: 1);
 
-      _subject.listen((data)=>print('listen 1: $data'));
-      _subject.add("hello");
-      _subject.listen((data)=>print('listen 2: ${data.toUpperCase()}'));
-      _subject.add("hola");
-      _subject.close();
+      // _subject.listen((data)=>print('listen 1: $data'));
+      // _subject.add("hello");
+      // _subject.listen((data)=>print('listen 2: ${data.toUpperCase()}'));
+      // _subject.add("hola");
+      // _subject.close();
 
 
 
@@ -49,6 +58,22 @@ class _RxDartDemoHomeState extends State<RxDartDemoHome> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Theme(
+        data: Theme.of(context).copyWith(
+            primaryColor: Colors.black,
+        ),
+        child: TextField(
+          onChanged: (value){
+            _textfieldSubject.add('input $value');
+          },
+          onSubmitted: (value){
+            _textfieldSubject.add('submit $value');
+          },
+          decoration: InputDecoration(
+            labelText: 'Title',
+            filled: true,
+          ),
+        ),
+    );
   }
 }
