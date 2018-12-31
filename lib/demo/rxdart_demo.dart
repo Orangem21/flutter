@@ -34,7 +34,7 @@ class _RxDartDemoHomeState extends State<RxDartDemoHome> {
       super.initState();
 
       _textfieldSubject = PublishSubject<String>();
-      _textfieldSubject.map((item)=>item.toUpperCase()).listen((data)=>print(data));
+      _textfieldSubject.where((item){return item.length > 5;}).listen((data)=>print(data));
       // Observable<String> _observable = 
       // Observable(Stream.fromIterable(['Hello', '您好']));
       // Observable.fromFuture(Future.value('Hello'));
@@ -64,10 +64,10 @@ class _RxDartDemoHomeState extends State<RxDartDemoHome> {
         ),
         child: TextField(
           onChanged: (value){
-            _textfieldSubject.add('input $value');
+            _textfieldSubject.add('$value');
           },
           onSubmitted: (value){
-            _textfieldSubject.add('submit $value');
+            _textfieldSubject.add('$value');
           },
           decoration: InputDecoration(
             labelText: 'Title',
