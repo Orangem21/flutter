@@ -85,7 +85,7 @@ class MyApp extends StatelessWidget {
           }else{
             showToast('Please Send Email to Developer');
             Fluttertoast.showToast(
-              msg: "Please Send Email to Develope",
+              msg: "Please Send Email to Developer",
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.CENTER,
               timeInSecForIos: 1,
@@ -97,7 +97,7 @@ class MyApp extends StatelessWidget {
       ),
       body: CupertinoPageScaffold(
           child: Container(
-            color: Colors.grey[100],
+            color: Colors.orange[50],
              child: Column(
                 children: <Widget>[
                 Flexible(
@@ -107,7 +107,7 @@ class MyApp extends StatelessWidget {
                   heightFactor: 1.0,
                   alignment: Alignment.topCenter,
                   child: Container(
-                    color: Colors.lightBlue[300],
+                    color: Colors.orange[200],
                     alignment: Alignment.bottomRight,
                     padding: const EdgeInsets.all(16.0),
                     child: Text("0",style: TextStyle(fontSize: 32.0,fontWeight: FontWeight.bold),),
@@ -122,16 +122,57 @@ class MyApp extends StatelessWidget {
                   children: <Widget>[
                     ButtonBar(
                       children: <Widget>[
-                        OutlineButton(
-                          child: Text("1"),
+                        SizedBox(
+                          child:FlatButton(
+                            child: Text("➕",style: TextStyle(fontSize: 20),),
+                            onPressed: (){},
+                          ),
+                        width: 60,
+                        ),
+                        SizedBox(
+                          child:FlatButton(
+                            child: Text("➖",style: TextStyle(fontSize: 20)),
+                            onPressed: (){},
+                          ),
+                        width: 60,
+                        ),
+                        SizedBox(
+                          child:FlatButton(
+                            child: Text("✖️",style: TextStyle(fontSize: 20)),
+                            onPressed: (){},
+                          ),
+                        width: 60,
+                        ),
+                        SizedBox(
+                          child:FlatButton(
+                            child: Text("➗",style: TextStyle(fontSize: 20)),
+                            onPressed: (){},
+                          ),
+                        width: 60,
+                        ),
+                      ] ,
+                    )
+                  ],
+                ),
+              ),
+              Flexible(
+                flex: 1,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    ButtonBar(
+                      children: <Widget>[
+                        FlatButton(
+                          child: Text("1",style: TextStyle(fontSize: 20)),
                           onPressed: (){},
                         ),
-                        OutlineButton(
-                          child: Text("2"),
+                        FlatButton(
+                          child: Text("2",style: TextStyle(fontSize: 20)),
                           onPressed: (){},
                         ),
-                        OutlineButton(
-                          child: Text("3"),
+                        FlatButton(
+                          child: Text("3",style: TextStyle(fontSize: 20)),
                           onPressed: (){},
                         ),
                       ] ,
@@ -146,16 +187,16 @@ class MyApp extends StatelessWidget {
                   children: <Widget>[
                     ButtonBar(
                       children: <Widget>[
-                        OutlineButton(
-                          child: Text("4"),
+                        FlatButton(
+                          child: Text("4",style: TextStyle(fontSize: 20)),
                           onPressed: (){},
                         ),
-                        OutlineButton(
-                          child: Text("5"),
+                        FlatButton(
+                          child: Text("5",style: TextStyle(fontSize: 20)),
                           onPressed: (){},
                         ),
-                        OutlineButton(
-                          child: Text("6"),
+                        FlatButton(
+                          child: Text("6",style: TextStyle(fontSize: 20)),
                           onPressed: (){},
                         ),
                       ] ,
@@ -170,17 +211,51 @@ class MyApp extends StatelessWidget {
                   children: <Widget>[
                     ButtonBar(
                       children: <Widget>[
-                        OutlineButton(
-                          child: Text("7"),
+                        FlatButton(
+                          child: Text("7",style: TextStyle(fontSize: 20)),
                           onPressed: (){},
                         ),
-                        OutlineButton(
-                          child: Text("8"),
+                        FlatButton(
+                          child: Text("8",style: TextStyle(fontSize: 20)),
                           onPressed: (){},
                         ),
-                        OutlineButton(
-                          child: Text("9"),
+                        FlatButton(
+                          child: Text("9",style: TextStyle(fontSize: 20)),
                           onPressed: (){},
+                        ),
+                      ] ,
+                    )
+                  ],
+                ),
+              ),
+              Flexible(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    ButtonBar(
+                      mainAxisSize: MainAxisSize.max,
+                      children: <Widget>[
+                        SizedBox(
+                          child:FlatButton(
+                            child: Text("0",style: TextStyle(fontSize: 20)),
+                            onPressed: (){},
+                          ),
+                        width: 60,
+                        ),
+                        SizedBox(
+                          child:FlatButton(
+                            child: Text(".",style: TextStyle(fontSize: 20)),
+                            onPressed: (){},
+                          ),
+                        width: 60,
+                        ),
+                        SizedBox(
+                          child:FlatButton(
+                            child: Text("＝",style: TextStyle(fontSize: 20)),
+                            onPressed: (){},
+                          ),
+                        width: 60,
                         ),
                       ] ,
                     )
