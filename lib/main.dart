@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'number.dart';
-
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -65,7 +66,132 @@ class MyApp extends StatelessWidget {
         backgroundColor: Colors.orange.withOpacity(0.8),
         elevation: 2.0, //阴影
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(Icons.refresh),title: Text("Clear")),
+          BottomNavigationBarItem(icon: Icon(Icons.near_me),title: Text("About")),
+        ],
+        type: BottomNavigationBarType.fixed,
+        onTap: (int index){
+          if(index == 0){
+            Fluttertoast.showToast(
+              msg: "Success Clear",
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.CENTER,
+              timeInSecForIos: 1,
+              backgroundColor: Colors.red,
+              textColor: Colors.white
+            );
+          }else{
+            showToast('Please Send Email to Developer');
+            Fluttertoast.showToast(
+              msg: "Please Send Email to Develope",
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.CENTER,
+              timeInSecForIos: 1,
+              backgroundColor: Colors.red,
+              textColor: Colors.white
+            );
+          }
+        },
+      ),
+      body: CupertinoPageScaffold(
+          child: Container(
+            color: Colors.grey[100],
+             child: Column(
+                children: <Widget>[
+                Flexible(
+                flex: 2,
+                child: FractionallySizedBox(
+                  widthFactor: 1.0,
+                  heightFactor: 1.0,
+                  alignment: Alignment.topCenter,
+                  child: Container(
+                    color: Colors.lightBlue[300],
+                    alignment: Alignment.bottomRight,
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text("0",style: TextStyle(fontSize: 32.0,fontWeight: FontWeight.bold),),
+                  ),
+                ),
+              ),
+              Flexible(
+                flex: 1,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    ButtonBar(
+                      children: <Widget>[
+                        OutlineButton(
+                          child: Text("1"),
+                          onPressed: (){},
+                        ),
+                        OutlineButton(
+                          child: Text("2"),
+                          onPressed: (){},
+                        ),
+                        OutlineButton(
+                          child: Text("3"),
+                          onPressed: (){},
+                        ),
+                      ] ,
+                    )
+                  ],
+                ),
+              ),
+              Flexible(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    ButtonBar(
+                      children: <Widget>[
+                        OutlineButton(
+                          child: Text("4"),
+                          onPressed: (){},
+                        ),
+                        OutlineButton(
+                          child: Text("5"),
+                          onPressed: (){},
+                        ),
+                        OutlineButton(
+                          child: Text("6"),
+                          onPressed: (){},
+                        ),
+                      ] ,
+                    )
+                  ],
+                ),
+              ),
+              Flexible(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    ButtonBar(
+                      children: <Widget>[
+                        OutlineButton(
+                          child: Text("7"),
+                          onPressed: (){},
+                        ),
+                        OutlineButton(
+                          child: Text("8"),
+                          onPressed: (){},
+                        ),
+                        OutlineButton(
+                          child: Text("9"),
+                          onPressed: (){},
+                        ),
+                      ] ,
+                    )
+                  ],
+                ),
+              )
+            ]
+          ),   
+        ),
+      ),
     );
-
   }
 }
+
