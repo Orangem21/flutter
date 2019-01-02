@@ -11,10 +11,24 @@ class body extends StatefulWidget {
 
 class _bodyState extends State<body> {
 
+
+  bool calculate_status = false;
+  String _calculate_decimal = '';
   String _currentdisplay = '0';
   String _defaultDisplay = '0';
+ 
 
   String _setValue(String index){
+
+    if(index == "➕"){
+
+    }else if(index == "➖"){
+
+    }else if(index == "✖️"){
+
+    }else if(index == "➗"){
+
+    }
 
     if(_currentdisplay != '0'){
       index = _currentdisplay + index;
